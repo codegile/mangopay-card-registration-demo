@@ -30,14 +30,24 @@ import java.util.Calendar;
 public class DemoApp extends SpringBootServletInitializer {
 
     @RequestMapping(value = "/card-registration", method = RequestMethod.GET)
-    public CardRegistration cardRegistration() throws Exception {
+    public CardRegistrationResponse cardRegistration() throws Exception {
         MangoPayApi mangoPayApi = getMangoPayApi();
         User user = mangoPayApi.Users.create(createUser());
         CardRegistration registration = new CardRegistration();
         registration.UserId = user.Id;
         registration.Currency = CurrencyIso.EUR;
         registration = mangoPayApi.CardRegistrations.create(registration);
-        return registration;
+
+        CardRegistrationResponse response = new CardRegistrationResponse();
+        response.setAccessKey(registration.AccessKey);
+        response.setBaseUrl(mangoPayApi.Config.BaseUrl);
+        response.setCardPreregistrationId(registration.Id);
+        response.setCardRegistrationURL(registration.CardRegistrationURL);
+        response.setCardType(registration.CardType.name());
+        response.setClientId(mangoPayApi.Config.ClientId);
+        response.setPreregistrationData(registration.PreregistrationData);
+
+        return response;
     }
 
     @Override
