@@ -40,7 +40,7 @@ public class DemoApp extends SpringBootServletInitializer {
 
         CardRegistrationResponse response = new CardRegistrationResponse();
         response.setAccessKey(registration.AccessKey);
-        response.setBaseUrl(mangoPayApi.Config.BaseUrl);
+        response.setBaseURL(mangoPayApi.Config.BaseUrl);
         response.setCardPreregistrationId(registration.Id);
         response.setCardRegistrationURL(registration.CardRegistrationURL);
         response.setCardType(registration.CardType.name());

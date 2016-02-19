@@ -7,7 +7,7 @@ package com.mangopay.demo;
  */
 public class CardRegistrationResponse {
     private String accessKey;
-    private String baseUrl;
+    private String baseURL;
     private String cardPreregistrationId;
     private String cardRegistrationURL;
     private String cardType;
@@ -23,12 +23,12 @@ public class CardRegistrationResponse {
         this.accessKey = accessKey;
     }
 
-    public String getBaseUrl() {
-        return baseUrl;
+    public String getBaseURL() {
+        return baseURL;
     }
 
-    public void setBaseUrl(String baseUrl) {
-        this.baseUrl = baseUrl;
+    public void setBaseURL(String baseURL) {
+        this.baseURL = baseURL;
     }
 
     public String getCardPreregistrationId() {
@@ -76,7 +76,7 @@ public class CardRegistrationResponse {
     public String toString() {
         return "CardRegistrationResponse{" +
                 "accessKey='" + accessKey + '\'' +
-                ", baseUrl='" + baseUrl + '\'' +
+                ", baseURL='" + baseURL + '\'' +
                 ", cardPreregistrationId='" + cardPreregistrationId + '\'' +
                 ", cardRegistrationURL='" + cardRegistrationURL + '\'' +
                 ", cardType='" + cardType + '\'' +
